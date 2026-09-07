@@ -5,11 +5,9 @@
    refresh index.html.
 */
 const DATA = {
-  name: "Her Name",
+  name: "Maryoma",
 
-  // IMPORTANT: Put her birthday here in YYYY-MM-DD format.
-  // Example: "2026-10-15"
-  birthday: "2008-09-16",
+
 
   message: `شكرا انك في حياتي ، سنة عدت و كنا فيها سوا و مرينا بحاجات كتير ، الحلو و الوحش ، عدينا بأوقات صعبة بس خرجنا منها سوا ، شكرا انك دايما بتبقي جنبي و شكرا انك بترخمي عليا عامة احلى رخامة ف الدنيا و شكرا على حاجات كتير اوي ، كل سنة و انتي كويسة و كل سنة و احنا سوا و عقبال السنين الجاية كلها و يوما ما نحتفل بعيد ميلادك و احنا ف بيتنا ❤️ `,
 
@@ -18,7 +16,7 @@ const DATA = {
 
   // Put your photos inside the "images" folder.
   photos: [
-     { file: "photo1.jpg", caption: "أجمل يوم بينا عامة" },
+    { file: "photo1.jpg", caption: "أجمل يوم بينا عامة" },
     { file: "photo2.jpg", caption: "السينما العظيمة" },
     { file: "photo3.jpg", caption: "يوم التيك توكات العظيييم" },
     { file: "photo4.jpg", caption: "تيشيرت السينيوووور" },
@@ -48,36 +46,6 @@ $("finalMessage").textContent = DATA.finalMessage;
 window.addEventListener("load", () => {
   setTimeout(() => $("loader").classList.add("done"), 1550);
 });
-
-// Countdown
-let countdownTimer;
-function getNextBirthday() {
-  const parts = DATA.birthday.split("-").map(Number);
-  if (parts.length !== 3 || parts.some(Number.isNaN)) return null;
-  const now = new Date();
-  let target = new Date(parts[0], parts[1]-1, parts[2], 0, 0, 0);
-  // If the configured birthday has passed, count to the next occurrence.
-  if (target.getTime() <= now.getTime()) {
-    target = new Date(now.getFullYear() + 1, parts[1]-1, parts[2], 0, 0, 0);
-  }
-  return target;
-}
-function updateCountdown() {
-  const target = getNextBirthday();
-  if (!target) { $("birthdayNote").textContent = "Set a valid birthday in script.js"; return; }
-  const diff = target - new Date();
-  const d = Math.max(0, Math.floor(diff / 86400000));
-  const h = Math.max(0, Math.floor(diff / 3600000) % 24);
-  const m = Math.max(0, Math.floor(diff / 60000) % 60);
-  const s = Math.max(0, Math.floor(diff / 1000) % 60);
-  $("days").textContent = String(d).padStart(2,"0");
-  $("hours").textContent = String(h).padStart(2,"0");
-  $("minutes").textContent = String(m).padStart(2,"0");
-  $("seconds").textContent = String(s).padStart(2,"0");
-  $("birthdayNote").textContent = `Until ${target.toLocaleDateString(undefined,{month:"long",day:"numeric"})} ✨`;
-}
-updateCountdown();
-countdownTimer = setInterval(updateCountdown, 1000);
 
 // Cinematic gallery + fallback placeholders
 const gallery = $("gallery");
