@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#120d18">
+  <title>For You ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loader" class="loader-screen">
+    <div class="loader-heart">♥</div>
+    <p>Preparing something special...</p>
+    <div class="loader-bar"><span></span></div>
+  </div>
+
+  <div id="confetti"></div>
+
+  <main>
+    <!-- Gift opening -->
+    <section id="intro" class="screen active">
+      <div class="stars"></div>
+      <div class="intro-content">
+        <p class="eyebrow">A little surprise for you</p>
+        <h1>Something special<br>is waiting for you.</h1>
+        <button id="openGift" class="gift-wrap" aria-label="Open the gift">
+          <span class="ribbon vertical"></span>
+          <span class="ribbon horizontal"></span>
+          <span class="lid"></span>
+          <span class="box"></span>
+          <span class="bow left"></span>
+          <span class="bow right"></span>
+          <span class="gift-spark s1">✦</span><span class="gift-spark s2">✧</span><span class="gift-spark s3">✦</span>
+        </button>
+        <p class="hint">Tap the gift to open it ✨</p>
+      </div>
+    </section>
+
+    <section id="content" class="hidden">
+      <div class="hero reveal-on-scroll">
+        <div class="hero-orb"></div>
+        <p class="eyebrow">Happy Birthday</p>
+        <h2 id="name">Her Name</h2>
+        <p class="hero-line">Today is all about celebrating you. ❤️</p>
+        <div class="scroll-cue">scroll ↓</div>
+      </div>
+
+      <!-- Birthday countdown -->
+      <section class="countdown-section reveal-on-scroll">
+        <span class="section-tag">Counting down to your day</span>
+        <h3 id="countdownTitle">Your special day</h3>
+        <div id="countdown" class="countdown" aria-live="polite">
+          <div><strong id="days">00</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <p id="birthdayNote" class="countdown-note"></p>
+      </section>
+
+      <section class="letter card reveal-on-scroll">
+        <span class="section-tag">A little message</span>
+        <h3>For you,</h3>
+        <p id="message"></p>
+        <p class="signature">— From someone who cares about you ❤️</p>
+      </section>
+
+      <!-- Cinematic memories -->
+      <section class="memories reveal-on-scroll">
+        <div class="section-heading">
+          <span class="section-tag">Our memories</span>
+          <h3>A few moments worth keeping.</h3>
+          <p>Tap any photo to see it full screen.</p>
+        </div>
+        <div id="gallery" class="cinematic-gallery"></div>
+      </section>
+
+      <section class="timeline reveal-on-scroll">
+        <div class="section-heading">
+          <span class="section-tag">Little timeline</span>
+          <h3>Some chapters of our story.</h3>
+        </div>
+        <div id="timeline" class="timeline-list"></div>
+      </section>
+
+      <section class="final-card reveal-on-scroll">
+        <div class="final-glow"></div>
+        <p class="eyebrow">One last thing...</p>
+        <h3 id="finalTitle">I hope you always remember this.</h3>
+        <p id="finalMessage"></p>
+        <div class="heart">♥</div>
+      </section>
+
+      <footer>Made with a little time, a lot of memories, and ❤️</footer>
+    </section>
+  </main>
+
+  <!-- Fullscreen photo viewer -->
+  <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button id="closeLightbox" class="lightbox-close" aria-label="Close">×</button>
+    <button id="prevPhoto" class="lightbox-nav prev" aria-label="Previous photo">‹</button>
+    <div class="lightbox-inner">
+      <img id="lightboxImg" src="" alt="Memory">
+      <p id="lightboxCaption"></p>
+    </div>
+    <button id="nextPhoto" class="lightbox-nav next" aria-label="Next photo">›</button>
+  </div>
+
+  <button id="musicBtn" class="music-btn hidden" aria-label="Toggle music">♫</button>
+  <audio id="music" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
